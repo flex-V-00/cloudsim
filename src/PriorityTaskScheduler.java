@@ -140,7 +140,8 @@ public class PriorityTaskScheduler {
                 System.out.print(pcl.getResourceId() + indent);
                 System.out.print(pcl.getVmId() + indent);
                 System.out.printf("%.2f\n", pcl.getActualCPUTime());
-                //Log.printLine("CI/CD done successfully");
+                Log.printLine("CI/CD done successfully");
+                Log.printLine("CI/CD done successfully");
             } else {
                 System.out.println("FAILED");
             }
