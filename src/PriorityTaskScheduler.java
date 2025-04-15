@@ -8,9 +8,9 @@ import java.util.*;
 
 public class PriorityTaskScheduler {
 
-    // Custom Cloudlet class with priority
+    
     static class PriorityCloudlet extends Cloudlet {
-        int priority; // 0 = High, 1 = Medium, 2 = Low
+        int priority; // ***0 = High***, ***1 = Medium***, ***2 = Low***
 
         public PriorityCloudlet(int cloudletId, long length, int pesNumber, UtilizationModel utilizationModel, int priority) {
             super(cloudletId, length, pesNumber, 300, 300, utilizationModel, utilizationModel, utilizationModel);
@@ -22,7 +22,7 @@ public class PriorityTaskScheduler {
         }
     }
 
-    // Custom Broker that sorts cloudlets based on priority before submission
+
     static class PriorityDatacenterBroker extends DatacenterBroker {
 
         public PriorityDatacenterBroker(String name) throws Exception {
@@ -140,7 +140,7 @@ public class PriorityTaskScheduler {
                 System.out.print(pcl.getResourceId() + indent);
                 System.out.print(pcl.getVmId() + indent);
                 System.out.printf("%.2f\n", pcl.getActualCPUTime());
-                Log.printLine("CI/CD done successfully");
+                //Log.printLine("CI/CD done successfully");
             } else {
                 System.out.println("FAILED");
             }
