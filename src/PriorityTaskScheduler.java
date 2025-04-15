@@ -8,7 +8,6 @@ import java.util.*;
 
 public class PriorityTaskScheduler {
 
-    // Custom Cloudlet with priority
     static class PriorityCloudlet extends Cloudlet {
         int priority;
 
@@ -22,14 +21,14 @@ public class PriorityTaskScheduler {
         }
     }
 
-    // Custom Broker that sorts Cloudlets by priority
+    
     static class PriorityDatacenterBroker extends DatacenterBroker {
 
         public PriorityDatacenterBroker(String name) throws Exception {
             super(name);
         }
 
-        // Override to sort cloudlets by priority before submitting
+        
         public void submitCloudletList(List<? extends Cloudlet> list) {
             list.sort(Comparator.comparingInt(c -> ((PriorityCloudlet) c).getPriority()));
             super.submitCloudletList(list);
@@ -65,7 +64,7 @@ public class PriorityTaskScheduler {
         }
     }
 
-    // Create one datacenter with one host
+    
     private static Datacenter createDatacenter(String name) throws Exception {
         List<Host> hostList = new ArrayList<>();
         List<Pe> peList = new ArrayList<>();
@@ -89,7 +88,7 @@ public class PriorityTaskScheduler {
         return new Datacenter(name, characteristics, new VmAllocationPolicySimple(hostList), new LinkedList<Storage>(), 0);
     }
 
-    // Create VMs
+
     private static List<Vm> createVMs(int userId, int numVMs) {
         List<Vm> vmList = new ArrayList<>();
 
@@ -101,7 +100,7 @@ public class PriorityTaskScheduler {
         return vmList;
     }
 
-    // Create Cloudlets with random priority
+    
     private static List<PriorityCloudlet> createPriorityCloudlets(int userId, int numCloudlets) {
         List<PriorityCloudlet> list = new ArrayList<>();
         UtilizationModel utilizationModel = new UtilizationModelFull();
@@ -115,7 +114,6 @@ public class PriorityTaskScheduler {
         return list;
     }
 
-    // Output result
     private static void printCloudletList(List<Cloudlet> list) {
         String indent = "    ";
         System.out.println("========== OUTPUT ==========");

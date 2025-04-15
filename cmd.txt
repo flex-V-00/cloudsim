@@ -1,0 +1,3 @@
+Compile: javac -cp lib/cloudsim-3.0.3.jar -d bin src/PriorityTaskScheduler.java
+
+Run: java -cp "lib/cloudsim-3.0.3.jar;bin" PriorityTaskScheduler
