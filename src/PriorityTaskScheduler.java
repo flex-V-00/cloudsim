@@ -59,7 +59,7 @@ public class PriorityTaskScheduler {
             PriorityDatacenterBroker broker = new PriorityDatacenterBroker("Broker");
 
             List<Vm> vmList = createVMs(broker.getId(), 3); // 3 VMs
-            List<PriorityCloudlet> cloudletList = createPriorityCloudlets(broker.getId(), 8); // 8 tasks
+            List<PriorityCloudlet> cloudletList = createPriorityCloudlets(broker.getId(), 18); // 8 tasks
 
             broker.submitVmList(vmList);
             broker.submitCloudletList(cloudletList);
@@ -140,6 +140,8 @@ public class PriorityTaskScheduler {
                 System.out.print(pcl.getResourceId() + indent);
                 System.out.print(pcl.getVmId() + indent);
                 System.out.printf("%.2f\n", pcl.getActualCPUTime());
+                Log.printLine("CI/CD done successfully");
+
                 
             } else {
                 System.out.println("FAILED");
